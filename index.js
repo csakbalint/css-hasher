@@ -27,7 +27,7 @@ var config = {
 	js: argv.js ? argv.js.split(',') : undefined,
 };
 
-var hidden = {
+var haccsh = {
 	hash: {},
 	sorted: [],
 	set: function (str) {
@@ -97,13 +97,19 @@ var hidden = {
 	parseJs: function () {
 
 		
-	}
+	},
+	run: co.wrap(function* () {
+
+		yield hidden.loadCss(config.css);
+		yield hidden.sort(); 
+		yield hidden.parseCss(config.css);
+		yield hidden.parseHtml(config.html);
+	})
 };
 
-co(function* () {
+module.exports = haccsh;
 
-	yield hidden.loadCss(config.css);
-	yield hidden.sort(); 
-	yield hidden.parseCss(config.css);
-	yield hidden.parseHtml(config.html);
-});
+if (!module.parent) {
+
+	haccsh();
+}

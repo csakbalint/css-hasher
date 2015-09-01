@@ -4,15 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "PORT=9999 NODE_ENV=test mocha --harmony -R spec -b --recursive"
   },
   "author": "Bálint Csák",
-  "license": "ISC",
+  "licenses": [
+    {
+      "type": "Apache",
+      "url": "https://github.com/csakbalint/haccsh/blob/master/LICENSE"
+    }
+  ],
+  "keywords": [
+    "css",
+    "hash",
+    "obfuscate"
+  ],
   "dependencies": {
     "bluebird": "^2.9.34",
     "co": "^4.6.0",
     "fs": "0.0.2",
     "minimist": "^1.2.0",
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.3.0"
   }
 }
