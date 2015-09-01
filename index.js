@@ -19,7 +19,7 @@ if (!argv.css || !argv.html) return console.log('No css or html file given');
 
 var config = {
 	cwd: argv.cwd || './',
-	dest: argv.dest || 'haccsh/',
+	dest: argv.dest || 'dist/',
 	prefix: argv.prefix || 'haccsv',
 	index: argv.index || 'aaaaa',
 	css: argv.css.split(','),
@@ -76,7 +76,7 @@ var hacssh = {
 
 				css = css.replace(new RegExp('\\' + pair[0], 'g'), '.' + pair[1]);
 			});
-			return yield fs.writeFileAsync(config.cwd + config.dest + cssFile, css);
+			return yield fs.writeFileAsync(config.dest + cssFile, css);
 		}));
 	},
 	parseHtml: function (htmlFiles) {
@@ -89,7 +89,7 @@ var hacssh = {
 				var str = HTML_TAG_REGEX[0] + pair[0].slice(1) + HTML_TAG_REGEX[1];
 				html = html.replace(new RegExp(str, 'g'), '$1' + pair[1] + '$3');
 			});
-			return yield fs.writeFileAsync(config.cwd + config.dest + htmlFile, html);
+			return yield fs.writeFileAsync(config.dest + htmlFile, html);
 		}));
 	},
 	parseJs: function () {
