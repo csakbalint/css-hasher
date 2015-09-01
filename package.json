@@ -1,0 +1,18 @@
+{
+  "name": "hacssh",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bálint Csák",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "co": "^4.6.0",
+    "fs": "0.0.2",
+    "minimist": "^1.2.0",
+    "underscore": "^1.8.3"
+  }
+}
