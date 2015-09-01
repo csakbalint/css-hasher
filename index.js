@@ -27,7 +27,7 @@ var config = {
 	js: argv.js ? argv.js.split(',') : undefined,
 };
 
-var haccsh = {
+var hacssh = {
 	hash: {},
 	sorted: [],
 	set: function (str) {
@@ -41,8 +41,8 @@ var haccsh = {
 	},
 	sort: Promise.method(function () {
 
-		var pairs = _.pairs(hidden.hash);
-		hidden.sorted =  pairs.sort(function (a, b) {
+		var pairs = _.pairs(hacssh.hash);
+		hacssh.sorted =  pairs.sort(function (a, b) {
 
 			var each = a[0];
 			var other = b[0];
@@ -51,7 +51,7 @@ var haccsh = {
 			if (other.indexOf(each) !== -1) return 1;
 			return each.length > other.length ? -1 : 1;
 		});
-		return hidden.sorted;
+		return hacssh.sorted;
 	}),
 	loadCss: function (cssFiles) {
 
@@ -62,7 +62,7 @@ var haccsh = {
 			while(!!(match = CSS_TAG_REGEX.exec(css))) {
 				
 				var str = match[0];
-				hidden.set(str);
+				hacssh.set(str);
 			}
 			return true;
 		}));
@@ -72,8 +72,7 @@ var haccsh = {
 		return Promise.map(cssFiles, co.wrap(function* (cssFile) {
 
 			var css = yield fs.readFileAsync(config.cwd + cssFile, 'utf8');
-			var match;
-			_.each(hidden.sorted, function (pair) {
+			_.each(hacssh.sorted, function (pair) {
 
 				css = css.replace(new RegExp('\\' + pair[0], 'g'), '.' + pair[1]);
 			});
@@ -85,8 +84,7 @@ var haccsh = {
 		return Promise.map(htmlFiles, co.wrap(function* (htmlFile) {
 
 			var html = yield fs.readFileAsync(config.cwd + htmlFile, 'utf8');
-			var match;
-			_.each(hidden.sorted, function (pair) {
+			_.each(hacssh.sorted, function (pair) {
 
 				var str = HTML_TAG_REGEX[0] + pair[0].slice(1) + HTML_TAG_REGEX[1];
 				html = html.replace(new RegExp(str, 'g'), '$1' + pair[1] + '$3');
@@ -100,16 +98,16 @@ var haccsh = {
 	},
 	run: co.wrap(function* () {
 
-		yield hidden.loadCss(config.css);
-		yield hidden.sort(); 
-		yield hidden.parseCss(config.css);
-		yield hidden.parseHtml(config.html);
+		yield hacssh.loadCss(config.css);
+		yield hacssh.sort(); 
+		yield hacssh.parseCss(config.css);
+		yield hacssh.parseHtml(config.html);
 	})
 };
 
-module.exports = haccsh;
+module.exports = hacssh;
 
 if (!module.parent) {
-
-	haccsh();
+	
+	hacssh.run();
 }
