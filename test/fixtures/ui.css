@@ -1,0 +1,102 @@
+nav.navbar {
+	background-color: #FFCC00;
+}
+
+nav.navbar .glyphicon {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 22px;
+}
+
+nav.navbar > .col-md-6 {
+	margin-top: 8px;
+}
+
+nav.navbar > .col-md-6 > h3 {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 23px;
+    margin: 0px 10px;
+}
+
+nav.navbar > .col-md-6 > .btn {
+	background-color: #4D4D4D;
+    border-color: #4D4D4D;
+    border-bottom: 4px solid black;
+	line-height: 1;
+}
+
+nav.navbar > .col-md-6 > .btn:active {
+	background-color: #1D1D1D;
+    border-color: #4D4D4D;
+    border-bottom: 4px solid black;
+}
+
+nav.navbar > .pull-right > .glyphicon {
+	padding: 6px;
+    top: 7px;
+	cursor: pointer;
+}
+
+nav.navbar > .pull-right > .glyphicon:hover {
+	background-color: #4D4D4D;
+	border-radius: 3px;
+	color: white;
+}
+
+.modal.fade.in {
+    background-color: rgba(255, 204, 0, 0.6);
+}
+
+.modal > .modal-dialog > .modal-content > .modal-header .glyphicon {
+	padding: 6px;
+    top: 7px;
+	cursor: pointer;
+}
+
+.modal > .modal-dialog > .modal-content > .modal-header .glyphicon:hover {
+	background-color: #4D4D4D;
+	border-radius: 3px;
+	color: white;
+}
+
+.modal > .modal-dialog > .modal-content {
+	border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #FFCC00;
+}
+
+.modal > .modal-dialog > .modal-content > .modal-header {
+	border: none;
+}
+
+.modal > .modal-dialog > .modal-content > .modal-body > .col-md-8 > p {
+    font-size: 22px;
+}
+
+.modal > .modal-dialog > .modal-content > .modal-body > .col-md-4 {
+	padding: 20px 15px
+}
+
+.modal > .modal-dialog > .modal-content > .modal-body > .col-md-4 > .glyphicon {
+	font-size: 90px;
+}
+
+.modal > .modal-dialog > .modal-content > .modal-footer {
+	border: none;
+	text-align: center;
+}
+
+.modal > .modal-dialog > .modal-content > .modal-footer > .btn {
+	background-color: #4D4D4D;
+    border-color: #4D4D4D;
+    border-bottom: 4px solid black;
+	line-height: 1;
+}
+
+.modal > .modal-dialog > .modal-content > .modal-footer > .btn:active {
+	background-color: #1D1D1D;
+    border-color: #4D4D4D;
+    border-bottom: 4px solid black;
+}
